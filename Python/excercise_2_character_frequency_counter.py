@@ -14,5 +14,17 @@
 # - Space characters are missing from output
 
 
-def get_frequency(input_string:str) -> dict:
-    pass
+def get_frequency(input_string: str) -> dict:
+    if not isinstance(input_string, str):
+        return None
+    if input_string.strip() == "":
+        return None
+
+    frequency_dict = {}
+    for i in input_string:
+        if i != " ":
+            frequency_dict[i] = frequency_dict.get(i, 0) + 1
+
+    return frequency_dict
+
+print(get_frequency("Géza kék az ég"))
